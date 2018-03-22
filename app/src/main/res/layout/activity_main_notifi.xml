@@ -187,11 +187,4 @@
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="cardRe,www" />
 
-    <android.support.constraint.Group
-        android:id="@+id/group2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:constraint_referenced_ids="floaArrow,floaInf" />
-
 </android.support.constraint.ConstraintLayout>

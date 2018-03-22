@@ -58,6 +58,7 @@
         android:layout_marginEnd="16dp"
         android:clickable="true"
         android:focusable="true"
+        android:visibility="gone"
         app:backgroundTint="#40324b"
         app:fabSize="normal"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
@@ -74,6 +75,7 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_notifications"
+        android:visibility="gone"
         app:backgroundTint="#40324b"
         app:fabSize="normal"
         app:layout_constraintBottom_toTopOf="@+id/floaInf"
@@ -180,12 +182,5 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:constraint_referenced_ids="cardRe,www" />
-
-    <android.support.constraint.Group
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:constraint_referenced_ids="floaNoti,floaInf" />
 
 </android.support.constraint.ConstraintLayout>
