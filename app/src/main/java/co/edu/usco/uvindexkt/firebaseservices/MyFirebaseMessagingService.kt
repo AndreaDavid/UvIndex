@@ -15,6 +15,7 @@ class MyFirebaseMessagingService:FirebaseMessagingService(){
         handleNotification(remoteMessage!!.notification!!.body)
     }
 
+
     fun handleNotification(body:String?){
         val pushNotification = Intent(Config.STR_PUSH)
         pushNotification.putExtra("message",body)

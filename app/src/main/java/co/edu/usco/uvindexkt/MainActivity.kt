@@ -17,6 +17,7 @@ import android.support.v4.content.LocalBroadcastManager
 import android.view.View
 import co.edu.usco.uvindexkt.`interface`.InterfaceRender
 import co.edu.usco.uvindexkt.config.Config
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_main_full.*
 import okhttp3.*
 import java.io.IOException
@@ -54,10 +55,12 @@ class MainActivity : AppCompatActivity(),InterfaceRender {
             override fun onReceive(context: Context?, intent: Intent?) {
                 if(intent!!.action == Config.STR_PUSH){
                     val message = intent!!.getStringExtra("message")
+                    println("Mensajee"+message)
                     showNotificacion("PAOLAFEA",message)
                 }
             }
         }
+        FirebaseMessaging.getInstance().subscribeToTopic("AndroidPushApp")
         //obteniendo las constrains
         //fullSet.clone(this, R.layout.activity_main_full)
         mainSet.clone(this, R.layout.activity_main)
@@ -146,7 +149,7 @@ class MainActivity : AppCompatActivity(),InterfaceRender {
         val builder = NotificationCompat.Builder(applicationContext,"hola")
         builder.setAutoCancel(true).setDefaults(Notification.DEFAULT_ALL)
                 .setWhen(System.currentTimeMillis())
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.mipmap.ic_launcher_round)
                 .setContentTitle(title)
                 .setContentText(message)
                 .setContentIntent(contentIntet)
