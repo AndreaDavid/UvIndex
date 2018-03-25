@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "808877303430",
+    "firebase_url": "https://androidpush-21d66.firebaseio.com",
+    "project_id": "androidpush-21d66",
+    "storage_bucket": "androidpush-21d66.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:808877303430:android:3958a95b04ad7b4b",
+        "android_client_info": {
+          "package_name": "co.edu.usco.uvindexkt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "808877303430-347agtcl5v31fr64q2nvaloog912eji1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.edu.usco.uvindexkt",
+            "certificate_hash": "22beaec1c219fcb93be87dc5e34de5292643d423"
+          }
+        },
+        {
+          "client_id": "808877303430-29qijo13kr3ic38qmn27724u84hg3hvo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQhUZMQZgrDmBUVCJ3oNjRitqKDmyL_NM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "808877303430-29qijo13kr3ic38qmn27724u84hg3hvo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
