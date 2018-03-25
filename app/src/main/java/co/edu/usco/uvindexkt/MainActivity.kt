@@ -149,7 +149,8 @@ class MainActivity : AppCompatActivity(),InterfaceRender {
         val builder = NotificationCompat.Builder(applicationContext,"hola")
         builder.setAutoCancel(true).setDefaults(Notification.DEFAULT_ALL)
                 .setWhen(System.currentTimeMillis())
-                .setSmallIcon(R.mipmap.ic_launcher_round)
+                .setSmallIcon(R.drawable.uv8)
+
                 .setContentTitle(title)
                 .setContentText(message)
                 .setContentIntent(contentIntet)
