@@ -56,7 +56,8 @@ class MainActivity : AppCompatActivity(),InterfaceRender {
                 if(intent!!.action == Config.STR_PUSH){
                     val message = intent!!.getStringExtra("message")
                     println("Mensajee"+message)
-                    showNotificacion("PAOLAFEA",message)
+                    run("http://192.168.0.109:8784/uvradiation/raspberrycontroller/findLastTrackDataUviInteger")
+                    //showNotificacion("PAOLAFEA",message)
                 }
             }
         }
