@@ -5,6 +5,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.support.v4.app.NotificationCompat
 import android.support.v4.content.LocalBroadcastManager
 import co.edu.usco.uvindexkt.MainActivity
@@ -14,10 +15,22 @@ import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
 
-class MyFirebaseMessagingService:FirebaseMessagingService(){
-    override fun onMessageReceived(remoteMessage: RemoteMessage?) {
 
-        showNotificacion(remoteMessage!!.data!!.getValue("body"),remoteMessage!!.data!!.getValue("body"))
+class MyFirebaseMessagingService:FirebaseMessagingService(){
+
+    var prefs: SharedPreferences? = null
+    val PREFS_FILENAME = "co.edu.usco.uvindexkt"
+    val UVI_REF = "uvi_ref"
+    override fun onMessageReceived(remoteMessage: RemoteMessage?) {
+        prefs = this.getSharedPreferences(PREFS_FILENAME,0)
+        if(prefs!=null) {
+            val uviReferencia: Int = prefs!!.getInt(UVI_REF, 0)
+            val uviEntrante:Float = remoteMessage!!.data!!.getValue("body").toFloat()
+            if(uviReferencia!=0&&uviEntrante>=uviReferencia) {
+                showNotificacion(remoteMessage!!.data!!.getValue("body"), remoteMessage!!.data!!.getValue("body"))
+
+            }
+        }
         handleRenderLayout(remoteMessage!!.data!!.getValue("body"))
     }
 

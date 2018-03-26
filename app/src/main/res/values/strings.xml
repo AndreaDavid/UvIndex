@@ -4,4 +4,5 @@
     <string name="www">www.uscoradiation.com</string>
     <string name="recomendaciones">Recomendaciones</string>
     <string name="guardar">Guardar</string>
+    <string name="notifi">Seleccione el indice UV apartir del cual quiere notificarse</string>
 </resources>
