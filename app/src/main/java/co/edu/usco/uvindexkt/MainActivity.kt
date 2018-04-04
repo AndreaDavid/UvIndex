@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(),InterfaceRender {
     val PREFS_FILENAME = "co.edu.usco.uvindexkt"
     val UVI_REF = "uvi_ref"
     var prefs: SharedPreferences? = null
-
+    val URL_SERVIDOR:String = "http://192.168.0.114:8784/uvradiation/raspberrycontroller/findLastTrackDataUviInteger"
     var mRegistrationBroadcastReceiver:BroadcastReceiver?=null
 
 
@@ -62,8 +62,7 @@ class MainActivity : AppCompatActivity(),InterfaceRender {
                 if(intent!!.action == Config.STR_PUSH){
                     val message = intent!!.getStringExtra("message")
                     println("Mensajee"+message)
-                    run("http://192.168.0.109:8784/uvradiation/raspberrycontroller/findLastTrackDataUviInteger")
-                    //showNotificacion("PAOLAFEA",message)
+                    run(URL_SERVIDOR)
                 }
             }
         }
@@ -74,7 +73,7 @@ class MainActivity : AppCompatActivity(),InterfaceRender {
         notifiSet.clone(this, R.layout.activity_main_notifi)
         fullSet.clone(root)
 
-        run("http://192.168.0.109:8784/uvradiation/raspberrycontroller/findLastTrackDataUviInteger")
+        run(URL_SERVIDOR)
 
         floaArrow.setOnClickListener {
             TransitionManager.beginDelayedTransition(root)
@@ -94,7 +93,7 @@ class MainActivity : AppCompatActivity(),InterfaceRender {
             if (initial) {
                 notifiSet.applyTo(root)
                 titleRecomen.text="Notificaciones"
-
+                recomendaciones.text = getString(R.string.notifi)
                 //uviNoti.visibility=View.GONE
 
             }
@@ -140,7 +139,7 @@ class MainActivity : AppCompatActivity(),InterfaceRender {
                 mainSet.applyTo(root)
                 uviNoti.visibility=View.GONE
                 btnGuardar.visibility=View.GONE
-
+                run(URL_SERVIDOR)
                 titleRecomen.text="Información"
             }
             else {fullSet.applyTo(root)
@@ -203,17 +202,39 @@ class MainActivity : AppCompatActivity(),InterfaceRender {
     fun renderImageFromUVI(uvi:Int?){
         println(uvi)
         when(uvi){
-            1->img.setImageResource(R.drawable.uv1)
-            2->img.setImageResource(R.drawable.uv2)
-            3->img.setImageResource(R.drawable.uv3)
-            4->img.setImageResource(R.drawable.uv4)
-            5->img.setImageResource(R.drawable.uv5)
-            6->img.setImageResource(R.drawable.uv6)
-            7->img.setImageResource(R.drawable.uv7)
-            8->img.setImageResource(R.drawable.uv8)
-            9->img.setImageResource(R.drawable.uv9)
-            10->img.setImageResource(R.drawable.uv10)
-            11->img.setImageResource(R.drawable.uv11)
+            1-> {img.setImageResource(R.drawable.uv1)
+                recomendaciones.text = "Se presenta un UVI bajo, puede permanecer en el exterior sin necesidad de protecion y no corre ningun riesgo"
+            }
+            2-> {img.setImageResource(R.drawable.uv2)
+                recomendaciones.text = "Se presenta un UVI bajo, puede permanecer en el exterior sin necesidad de protecion y no corre ningun riesgo"
+            }
+            3->{img.setImageResource(R.drawable.uv3)
+                recomendaciones.text ="Se presenta un UVI moderado, mantengase a la sombra durante las horas centrales del dia, apliquese crema de proteccion solar use camisa manga larga y sombrero."
+            }
+            4->{img.setImageResource(R.drawable.uv4)
+                recomendaciones.text ="Se presenta un UVI moderado, mantengase a la sombra durante las horas centrales del dia, apliquese crema de proteccion solar use camisa manga larga y sombrero."
+            }
+            5->{img.setImageResource(R.drawable.uv5)
+                recomendaciones.text ="Se presenta un UVI moderado, mantengase a la sombra durante las horas centrales del dia, apliquese crema de proteccion solar use camisa manga larga y sombrero."
+            }
+            6->{img.setImageResource(R.drawable.uv6)
+                recomendaciones.text ="Se presenta un UVI alto, mantengase a la sombra durante las horas centrales del dia, apliquese crema de proteccion solar use camisa manga larga y sombrero."
+            }
+            7->{img.setImageResource(R.drawable.uv7)
+                recomendaciones.text ="Se presenta un UVI alto, mantengase a la sombra durante las horas centrales del dia, apliquese crema de proteccion solar use camisa manga larga y sombrero."
+            }
+            8->{img.setImageResource(R.drawable.uv8)
+                recomendaciones.text ="Se presenta un UVI muy alto, mantengase a la sombra durante las horas centrales del dia, apliquese crema de proteccion solar use camisa manga larga y sombrero."
+            }
+            9->{img.setImageResource(R.drawable.uv9)
+                recomendaciones.text ="Se presenta un UVI muy alto, mantengase a la sombra durante las horas centrales del dia, apliquese crema de proteccion solar use camisa manga larga y sombrero."
+            }
+            10->{img.setImageResource(R.drawable.uv10)
+                recomendaciones.text ="Se presenta un UVI muy alto, mantengase a la sombra durante las horas centrales del dia, apliquese crema de proteccion solar use camisa manga larga y sombrero."
+            }
+            11->{img.setImageResource(R.drawable.uv11)
+                recomendaciones.text ="Se presenta un UVI extremadamente alto, evite salir durante las horas centrales del dia de 10am a 2pm, busque la sombra en todo momento, es imprescindible que use camisa sombrero y crema de proteccion solar."
+            }
         }
     }
 

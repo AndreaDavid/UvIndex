@@ -27,7 +27,7 @@ class MyFirebaseMessagingService:FirebaseMessagingService(){
             val uviReferencia: Int = prefs!!.getInt(UVI_REF, 0)
             val uviEntrante:Float = remoteMessage!!.data!!.getValue("body").toFloat()
             if(uviReferencia!=0&&uviEntrante>=uviReferencia) {
-                showNotificacion(remoteMessage!!.data!!.getValue("body"), remoteMessage!!.data!!.getValue("body"))
+                showNotificacion("Alerta UVI", remoteMessage!!.data!!.getValue("body"))
 
             }
         }
@@ -47,13 +47,69 @@ class MyFirebaseMessagingService:FirebaseMessagingService(){
         val builder = NotificationCompat.Builder(applicationContext,"hola")
         builder.setAutoCancel(true).setDefaults(Notification.DEFAULT_ALL)
                 .setWhen(System.currentTimeMillis())
-                .setSmallIcon(R.drawable.uv8)
-
-                .setContentTitle(title)
-                .setContentText(message)
                 .setContentIntent(contentIntet)
-        val notificationManager = baseContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
+        when(message?.toInt()) {
+            1 -> {
+                builder.setSmallIcon(R.drawable.uv1)
+                        .setContentTitle(title)
+                        .setContentText("Se presenta un UVI de 1")
+            }
+            2 -> {
+                builder.setSmallIcon(R.drawable.uv2)
+                        .setContentTitle(title)
+                        .setContentText("Se presenta un UVI de 2")
+            }
+            3 -> {
+                builder.setSmallIcon(R.drawable.uv3)
+                        .setContentTitle(title)
+                        .setContentText("Se presenta un UVI de 3")
+            }
+            4 -> {
+                builder.setSmallIcon(R.drawable.uv4)
+                        .setContentTitle(title)
+                        .setContentText("Se presenta un UVI de 4")
+            }
+            5 -> {
+                builder.setSmallIcon(R.drawable.uv5)
+                        .setContentTitle(title)
+                        .setContentText("Se presenta un UVI de 5")
+
+            }
+            6 -> {
+                builder.setSmallIcon(R.drawable.uv6)
+                        .setContentTitle(title)
+                        .setContentText("Se presenta un UVI de 6")
+            }
+            7 -> {
+                builder.setSmallIcon(R.drawable.uv7)
+                        .setContentTitle(title)
+                        .setContentText("Se presenta un UVI de 7")
+            }
+            8 -> {
+                builder.setSmallIcon(R.drawable.uv8)
+                        .setContentTitle(title)
+                        .setContentText("Se presenta un UVI de 8")
+
+            }
+            9 -> {
+                builder.setSmallIcon(R.drawable.uv9)
+                        .setContentTitle(title)
+                        .setContentText("Se presenta un UVI de 9")
+
+            }
+            10 -> {
+                builder.setSmallIcon(R.drawable.uv10)
+                        .setContentTitle(title)
+                        .setContentText("Se presenta un UVI de 10")
+            }
+            11 -> {
+                builder.setSmallIcon(R.drawable.uv11)
+                        .setContentTitle(title)
+                        .setContentText("Se presenta un UVI de 11")
+            }
+        }
+        val notificationManager = baseContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(1,builder.build())
     }
 }
